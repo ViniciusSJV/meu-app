@@ -1,0 +1,40 @@
+<div id="usuario" [ngClass] = "'home'">
+
+		<div class="btnArea">
+			<a *ngIf="usuarioLogado.admin"
+          routerLink="/cadastro"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }" class="btn btnAdd">Cadastrar</a>
+		</div>
+
+		<div class="filter-area">
+         <label>Filtro </label>
+         <input placeholder="Filtre por nome, usuario, email ou celular" type="text" id="filtro" [(ngModel)]="filtro"/>
+				 <div class="filter-btn-area">
+				 	<input type="button" class="filtrar" (click)="filtrar()" value="Filtrar"/>
+				 	<input type="button" class="resetar" (click)="resetar()" value="Resetar"/>
+				</div>
+   </div>
+
+		<table id="usuarios">
+		<tr>
+			<th>Nome</th>
+			<th>Usuario</th>
+			<th>E-Mail</th>
+			<th>Celular</th>
+				<th>Tipo</th>
+		</tr>
+		  <tr *ngFor="let usuario of usuarios">
+			<td>{{ usuario.nome }}</td>
+			<td>{{ usuario.usuario }}</td>
+			<td>{{ usuario.email }}</td>
+			<td>{{ usuario.celular }}</td>
+			<td>
+				<div>
+					<div *ngIf="usuario.admin"><span class="admin">Administrador</span></div>
+					<div *ngIf="!usuario.admin"><span class="comum">Comum</span></div>
+				</div>
+			</td>
+		  </tr>
+		</table>
+	</div>

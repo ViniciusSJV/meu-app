@@ -1,0 +1,26 @@
+<div [ngClass] = "'login'"  class="login-container">
+  <div  class="login-form">
+    <form [formGroup] = "form" (ngSubmit) = "login()">
+      <h2>Login</h2>
+      <div style="margin-top: 10px; margin-button: 10px;">
+  			  <label for="usuario">Usuario:</label>
+  				<input type="text" name="usuario" formControlName="usuario" [(ngModel)]="usuario.usuario">
+  				<small class="alert" [hidden]="form.controls.usuario.valid">
+  		        Informe seu usuario.
+  		    </small>
+  		</div>
+      <div style="margin-top: 10px; margin-button: 10px;">
+          <label for="senha">Senha:</label>
+          <input type="password" name="senha" formControlName="senha" [(ngModel)]="usuario.senha">
+          <small class="alert" [hidden]="form.controls.senha.valid">
+              Informe sua senha.
+          </small>
+      </div>
+
+      <div style="margin-top: 30px;">
+  			<input type="submit" [disabled] = "!form.valid" value="Login" class="btn btnAdd">
+  		</div>
+
+    </form>
+  </div>
+</div>

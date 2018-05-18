@@ -1,0 +1,123 @@
+
+#usuario{
+  padding: 20px;
+  margin-top: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#usuarios {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 25px;
+}
+
+#usuarios td, #usuarios th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#usuarios tr:hover {background-color: #ddd;}
+
+#usuarios th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00BCD4;
+    color: white;
+}
+
+.filter-area{
+  padding-top: 30px;
+  max-width: 290px;
+  display: grid;
+}
+
+.filter-area label{
+    color: #03A9F4;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.filter-area input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.filter-btn-area input{
+  color: white;
+  border-style: none;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+.filter-btn-area input:focus{
+  outline: none;
+}
+
+.filter-btn-area input.filtrar{
+  background-color: #00BCD4;
+}
+
+.filter-btn-area input.resetar{
+  background-color: #F44336;
+}
+
+.filter-btn-area input.resetar:hover{
+  box-shadow: 5px -6px 25px #E57373 inset;
+}
+
+.filter-btn-area input.filtrar:hover{
+  box-shadow: 5px -6px 25px #80DEEA inset;
+}
+
+span.comum{
+	color: white;
+    background: #4CAF50;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+span.admin{
+	color: white;
+    background: #2196f3;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.btnArea{border-bottom: 1px #E0E0E0 solid;
+    padding-bottom: 12px;}
+
+.btn{
+	margin: 5px 5px 5px 0;
+    font-size: 16px;
+	border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btnAdd {
+    color: #fff;
+    background-color: #4CAF50;
+}
+
+.btn:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+button{
+  border: none;
+      background: transparent;
+}

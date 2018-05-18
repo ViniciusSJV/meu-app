@@ -1,0 +1,61 @@
+<div [ngClass] = "'cadastro'" class="usuario-container">
+
+	<div class="usuario-form">
+
+		<form [formGroup] = "form" (ngSubmit) = "cadastrarUsuario()">
+			<h2>Cadastrar novo usuario</h2>
+			<div style="display: flex; align-items: center;">
+				<label>Admin:</label>
+				<label class="switch">
+					<input [(ngModel)]="usuario.admin" formControlName="admin" type="checkbox" checked>
+					<span class="slider round"></span>
+				</label>
+			</div>
+
+				<div>
+					<label>Nome:</label>
+						<input type="text" formControlName="nome" [(ngModel)]="usuario.nome">
+						<small class="alert" [hidden]="form.controls.nome.valid">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div>
+					<label>Usuario:</label>
+						<input [(ngModel)]="usuario.usuario" formControlName="usuario" type="text">
+						<small class="alert" [hidden]="form.controls.usuario.valid">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div>
+					<label>Senha:</label>
+						<input type="password"  formControlName="senha" [(ngModel)]="usuario.senha">
+						<small class="alert" [hidden]="form.controls.senha.valid">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div>
+					<label>E-mail:</label>
+						<input type="text" formControlName="email" [(ngModel)]="usuario.email">
+						<small class="alert" [hidden]="form.controls.email.valid">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div>
+					<label>Celular:</label>
+						<input type="text" formControlName="celular" [(ngModel)]="usuario.celular">
+						<small class="alert" [hidden]="form.controls.celular.valid">
+								Campo Obrigatorio.
+						</small>
+				</div>
+
+				<div class="btnArea">
+					<input type="submit" [disabled] = "!form.valid" value="Salvar" class="btn btnAdd">
+				</div>
+			</form>
+	</div>
+
+</div>
