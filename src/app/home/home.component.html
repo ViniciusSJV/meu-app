@@ -1,15 +1,14 @@
 <div id="usuario" [ngClass] = "'home'">
 
+  <app-logout></app-logout>
+
 		<div class="btnArea">
-			<a *ngIf="usuarioLogado.admin"
-          routerLink="/cadastro"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }" class="btn btnAdd">Cadastrar</a>
+			<a *ngIf="usuarioLogado.admin" [routerLink]="['/cadastro-edit', 0]" class="btn btnAdd">Cadastrar</a>
 		</div>
 
 		<div class="filter-area">
          <label>Filtro </label>
-         <input placeholder="Filtre por nome, usuario, email ou celular" type="text" id="filtro" [(ngModel)]="filtro"/>
+         <input placeholder="Filtre por nome, usuario, email ou celular" type="text" [(ngModel)]="filtro"/>
 				 <div class="filter-btn-area">
 				 	<input type="button" class="filtrar" (click)="filtrar()" value="Filtrar"/>
 				 	<input type="button" class="resetar" (click)="resetar()" value="Resetar"/>
@@ -22,7 +21,9 @@
 			<th>Usuario</th>
 			<th>E-Mail</th>
 			<th>Celular</th>
-				<th>Tipo</th>
+			<th>Tipo</th>
+			<th *ngIf="usuarioLogado.admin">Editar</th>
+			<th *ngIf="usuarioLogado.admin">Excluir</th>
 		</tr>
 		  <tr *ngFor="let usuario of usuarios">
 			<td>{{ usuario.nome }}</td>
@@ -34,6 +35,14 @@
 					<div *ngIf="usuario.admin"><span class="admin">Administrador</span></div>
 					<div *ngIf="!usuario.admin"><span class="comum">Comum</span></div>
 				</div>
+			</td>
+			<td *ngIf="usuarioLogado.admin">
+				<a [routerLink]="['/cadastro-edit', usuario.id]">
+					<i class="material-icons">mode_edit</i>
+				</a>
+			</td>
+			<td *ngIf="usuarioLogado.admin">
+				<button (click)="deleteUsuario(usuario.id)"><i class="material-icons" >delete</i></button>
 			</td>
 		  </tr>
 		</table>

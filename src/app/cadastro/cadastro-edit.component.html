@@ -1,0 +1,69 @@
+<div [ngClass] = "'cadastro-edit'" class="usuario-container">
+
+	<div class="usuario-form">
+
+		<app-logout></app-logout>
+
+		<form [formGroup]="usuarioForm" (ngSubmit) = "cadastrarUsuario()">
+			<h2>{{ titulo }}</h2>
+			<div style="display: flex; align-items: center;" class="form-group">
+				<label>Admin:</label>
+				<label class="switch">
+					<input [(ngModel)]="usuario.admin" formControlName="admin" class="form-control" type="checkbox" checked>
+					<span class="slider round"></span>
+				</label>
+			</div>
+
+				<div class="form-group">
+					<label>Nome:</label>
+						<input [(ngModel)]="usuario.nome" required type="text" class="form-control" formControlName="nome">
+						<small class="alert" *ngIf="usuarioForm.get('nome').hasError('required')">
+								Campo Obrigatorio.
+						</small>
+				</div>
+
+				<div class="form-group">
+					<label>Usuario:</label>
+						<input [(ngModel)]="usuario.usuario" required formControlName="usuario" class="form-control" type="text">
+						<small class="alert" *ngIf="usuarioForm.get('usuario').hasError('required')">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div class="form-group">
+					<label>Senha:</label>
+						<input [(ngModel)]="usuario.senha" required type="password" class="form-control" formControlName="senha">
+						<small class="alert" *ngIf="usuarioForm.get('senha').hasError('required')">
+				        Campo Obrigatorio.
+				    </small>
+				</div>
+
+				<div class="form-group">
+					<label>E-mail:</label>
+						<input [(ngModel)]="usuario.email" required type="email" class="form-control" formControlName="email">
+						<small class="alert" *ngIf="usuarioForm.get('email').hasError('required')">
+				        Campo Obrigatorio.
+				    </small>
+						<small class="alert" *ngIf="usuarioForm.get('email').hasError('pattern')">
+				        E-mail invalido.
+				    </small>
+				</div>
+
+				<div class="form-group">
+					<label>Celular:</label>
+						<input [(ngModel)]="usuario.celular" required type="tel" class="form-control" formControlName="celular">
+						<small class="alert" *ngIf="usuarioForm.get('celular').hasError('required')">
+								Campo Obrigatorio.
+						</small>
+						<small class="alert" *ngIf="usuarioForm.get('celular').hasError('pattern')">
+								Celular invalido.
+						</small>
+				</div>
+
+				<div class="btnArea">
+					<input type="submit" [disabled] = "!usuarioForm.valid" value="Salvar" class="btn btnAdd">
+				</div>
+			</form>
+	</div>
+
+</div>

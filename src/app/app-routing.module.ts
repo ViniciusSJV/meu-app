@@ -1,22 +1,23 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule }      from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './home/usuario.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { HomeComponent } from './home/home.component';
+import { CadastroEditComponent } from './cadastro/cadastro-edit.component';
 import { LoginComponent } from './login/login.component';
 
 import { Auth } from './_auth/auth';
 import { AuthAdm } from './_auth/authAdm';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', component: UsuarioComponent, canActivate: [Auth] },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [Auth] },
   { path: 'login', component: LoginComponent },
-	{ path: 'cadastro', component: CadastroComponent, canActivate: [AuthAdm] }
+  { path: 'cadastro-edit/:id', component: CadastroEditComponent, canActivate: [AuthAdm] }
 ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule{ }
+export class AppRoutingModule { }

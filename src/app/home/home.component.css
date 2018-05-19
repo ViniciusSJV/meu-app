@@ -89,6 +89,11 @@ span.admin{
     padding: 4px;
 }
 
+i{
+	color: #607D8B;
+	cursor: pointer;
+}
+
 .btnArea{border-bottom: 1px #E0E0E0 solid;
     padding-bottom: 12px;}
 

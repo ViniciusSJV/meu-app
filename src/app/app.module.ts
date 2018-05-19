@@ -1,19 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http'
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { BackendProvider } from './_back-end/backEndInterceptor';
+
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './home/usuario.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { HomeComponent } from './home/home.component';
+import { CadastroEditComponent } from './cadastro/cadastro-edit.component';
 import { LoginComponent } from './login/login.component';
+import { AlertaComponent } from './alerta/alerta.component';
+import { LogoutComponent } from './logout/logout.component';
 
 import { UsuarioService } from './_servico/usuario.service';
 import { LoginService } from './_servico/login.service';
+import { AlertaService } from './_servico/alerta.service';
 
-import { AppRoutingModule }  from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { Auth } from './_auth/auth';
 import { AuthAdm } from './_auth/authAdm';
@@ -21,21 +25,24 @@ import { AuthAdm } from './_auth/authAdm';
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
+    HomeComponent,
+    AlertaComponent,
     LoginComponent,
-    CadastroComponent
+    LogoutComponent,
+    CadastroEditComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-		AppRoutingModule,
+    AppRoutingModule,
     CommonModule
   ],
   providers: [
     UsuarioService,
+    AlertaService,
+    BackendProvider,
     Auth,
     AuthAdm,
     LoginService
