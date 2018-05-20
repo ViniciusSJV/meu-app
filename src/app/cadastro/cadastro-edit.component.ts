@@ -59,7 +59,7 @@ export class CadastroEditComponent implements OnInit, OnDestroy  {
       this.sub.unsubscribe();
     }
 
-    cadastrarUsuario() {
+    submitUsuario() {
       if ( this.id !== 0 ) {
         this.updateUsuario();
       } else {
