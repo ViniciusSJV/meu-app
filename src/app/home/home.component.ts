@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   usuarios: Usuario[];
   usuarioLogado: Usuario;
   filtro;
+  private filterString:Subject<string> = new Subject<string>();
 
   constructor( private usuarioService: UsuarioService, private alertaService: AlertaService ) { }
 
@@ -35,8 +36,15 @@ export class HomeComponent implements OnInit {
   }
 
   filtrar() {
-      this.usuarioService.getUsuariosFiltrados(this.filtro).subscribe(usuarios => { this.usuarios = usuarios; });
+    this.filterString
+        .debounceTime(300)
+        .switchMap(filtro => this.usuarioService.getUsuariosFiltrados(filtro))
+        .catch(error => this.alertaService.error(error));
    }
+  
+  handleFilterChange(value: string) {
+    this.filterString.next(value);
+  }
 
    resetar() {
      this.filtro = '';
