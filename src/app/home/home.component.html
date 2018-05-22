@@ -8,7 +8,7 @@
 
 		<div class="filter-area">
          <label>Filtro </label>
-         <input placeholder="Filtre por nome, usuario, email ou celular" type="text" [(ngModel)]="filtro"/>
+         <input (change)="handleFilterChange($event.target.value)" placeholder="Filtre por nome, usuario, email ou celular" type="text" [(ngModel)]="filtro"/>
 				 <div class="filter-btn-area">
 				 	<input type="button" class="filtrar" (click)="filtrar()" value="Filtrar"/>
 				 	<input type="button" class="resetar" (click)="resetar()" value="Resetar"/>
